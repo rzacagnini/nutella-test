@@ -6,7 +6,9 @@
     "build": "webpack --config webpack.config.js",
     "start": "cd dist & live-server",
     "lint": "eslint \"src/**/*.{ts,tsx}\"",
-    "lint:fix": "eslint --fix \"src/**/*.{ts,tsx}\""
+    "lint:fix": "eslint --fix \"src/**/*.{ts,tsx}\"",
+    "precommit": "lint-staged",
+    "commit": "clear && git-cz"
   },
   "keywords": [
     "react",
@@ -27,6 +29,8 @@
     "react-dom": "^16.12.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^9.1.2",
+    "@commitlint/config-conventional": "^9.1.2",
     "@types/react": "^16.8.24",
     "@types/react-dom": "^16.0.5",
     "@types/webpack": "4.1.4",
@@ -35,10 +39,32 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-config-react-app": "^5.2.1",
     "eslint-plugin-flowtype": "^5.2.0",
+    "git-cz": "^4.7.1",
+    "husky": "^4.2.5",
+    "lint-staged": "^10.0.0-1",
     "prettier": "^2.1.1",
     "ts-loader": "^6.2.1",
     "typescript": "^3.4.3",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/**/*.{js,ts,tsx}": [
+      "prettier --config .prettierrc --write",
+      "eslint --fix \"src/**/*.{ts,tsx}\"",
+      "eslint \"src/**/*.{ts,tsx}\"",
+      "git add"
+    ]
+  },
+  "commitlint": {
+    "extends": [
+      "@commitlint/config-conventional"
+    ]
   }
 }
