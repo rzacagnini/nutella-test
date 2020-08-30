@@ -12,16 +12,28 @@ npm i -g yarn
 
 ## Install deps and build 
 
+To install deps:
+
 ```node
 yarn
-yarn build 
 ```
 
 or 
 
 ```node
 npm i
-npm build 
+```
+
+To build and remain watching changes:
+
+```node
+yarn build-watch
+```
+
+or 
+
+```node
+npm build-watch
 ```
 
 ## Project running instructions
@@ -36,6 +48,20 @@ or
 
 ```node
 npm start 
+```
+
+## Tests running instructions
+
+To test, just run:
+
+```node
+yarn test 
+```
+
+or
+
+```node
+npm test 
 ```
 
 ## Commit instructions

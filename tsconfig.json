@@ -1,10 +1,17 @@
 {
     "compilerOptions": {
+      "baseUrl": "",
       "outDir": "./dist",
       "target": "es5",
       "module": "es6",
       "jsx": "react",
       "noImplicitAny": true,
-      "allowSyntheticDefaultImports": true
+      "allowSyntheticDefaultImports": true,
+      "moduleResolution": "node",
+      "paths": {
+        "@babel/template": [
+          "node_modules/@types/babel__template"
+        ]
+      }
     }
-  }
+}
