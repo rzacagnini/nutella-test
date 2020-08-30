@@ -48,4 +48,8 @@ To do both things, just execute the next commands and answer the few questions t
 git add .
 yarn commit
 ```
+Then, only execute:
 
+```node
+git push
+```
